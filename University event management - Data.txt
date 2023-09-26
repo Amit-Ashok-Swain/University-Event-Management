@@ -1,0 +1,411 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Add a single student
+
+INSERT INTO Student (first_name, last_name, age, student_department) VALUES ('John', 'Doe', 20, 'CSE');
+
+
+
+-- Add multiple students
+
+INSERT INTO Student (first_name, last_name, age, student_department) VALUES
+    ('Jane', 'Smith', 22, 'ECE'),
+    ('Alice', 'Johnson', 19, 'ME'),
+    ('Michael', 'Wilson', 23, 'ECE'),
+    ('Emily', 'Brown', 20, 'CIVIL'),
+    ('William', 'Jones', 22, 'CIVIL'),
+    ('Olivia', 'Smith', 19, 'ME'),
+    ('James', 'Wilson', 24, 'ECE'),
+    ('Charlotte', 'Lee', 18, 'ME'),
+    ('Ava', 'Garcia', 20, 'ME'),
+    ('Mason', 'Davis', 22, 'ECE'),
+    ('Ella', 'Hernandez', 21, 'CIVIL'),
+    ('Jackson', 'Lopez', 23, 'CSE'),
+    ('Oliver', 'Rodriguez', 18, 'ME'),
+    ('Sophia', 'Perez', 25, 'ECE'),
+    ('Evelyn', 'Hall', 19, 'ME'),
+    ('Elijah', 'Bennett', 20, 'CSE'),
+    ('Henry', 'Scott', 22, 'CSE'),
+    ('Lily', 'Wright', 19, 'ECE'),
+    ('Owen', 'King', 23, 'CSE');
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Add a single event
+
+INSERT INTO Event (event_id, event_name, location_of_event, event_date, start_time, end_time) VALUES (1, 'Tech Conference', 'Auditorium A', '2023-10-15', '10:00:00', '15:00:00');
+
+
+
+-- Add multiple events
+
+INSERT INTO Event (event_id, event_name, location_of_event, event_date, start_time, end_time) VALUES
+    (2, 'Sports Day', 'Stadium', '2023-11-05', '09:00:00', '16:00:00'),
+    (3, 'Science Exhibition', 'Science Hall', '2023-09-20', '11:00:00', '14:00:00'),
+    (4, 'Annual Gala', 'Grand Ballroom', '2023-12-15', '19:30:00', '23:00:00'),
+    (5, 'Career Workshop', 'Meeting Room A', '2023-11-10', '14:00:00', '17:00:00'),
+    (6, 'Music Festival', 'Open Air Arena', '2023-10-28', '16:00:00', '22:00:00'),
+    (7, 'Hackathon', 'Computer Lab', '2023-12-05', '08:00:00', '18:00:00'),
+    (8, 'Art Show', 'Art Studio', '2023-11-15', '10:00:00', '16:00:00'),
+    (9, 'Guest Lecture', 'Lecture Hall B', '2023-10-25', '14:30:00', '16:30:00'),
+    (10, 'Book Fair', 'Library', '2023-11-20', '09:00:00', '17:00:00'),
+    (11, 'Movie Night', 'Outdoor Theater', '2023-10-12', '19:00:00', '22:00:00'),
+    (12, 'Job Fair', 'Exhibition Center', '2023-12-01', '10:00:00', '15:00:00'),
+    (13, 'Dance Competition', 'Dance Studio', '2023-11-08', '14:00:00', '18:00:00'),
+    (14, 'Science Fair', 'Science Building', '2023-10-15', '09:30:00', '15:30:00'),
+    (15, 'Coding Competition', 'Computer Lab', '2023-11-12', '10:00:00', '16:00:00'),
+    (16, 'Charity Fundraiser', 'Community Center', '2023-10-25', '18:30:00', '22:30:00'),
+    (17, 'Art Workshop', 'Art Studio', '2023-12-03', '14:00:00', '17:00:00'),
+    (18, 'Science Symposium', 'Science Hall', '2023-11-20', '09:30:00', '16:30:00'),
+    (19, 'Sports Tournament', 'Sports Complex', '2023-09-28', '13:00:00', '18:00:00'),
+    (20, 'Theater Performance', 'Main Theater', '2023-11-30', '19:00:00', '22:00:00');
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Students Queries:
+
+1. To retrieve all students:
+   
+   
+   SELECT * FROM Student;
+  
+
+2. To retrieve a specific student by their ID (replace `<student_id>` with the actual student ID):
+
+   
+   SELECT * FROM Student WHERE student_id = <student_id>;
+  
+
+3. To retrieve students of a specific department (e.g., CSE):
+
+   
+   SELECT * FROM Student WHERE student_department = 'CSE';
+  
+
+4. To retrieve students within a certain age range (e.g., between 18 and 25):
+
+
+   SELECT * FROM Student WHERE age BETWEEN 18 AND 25;
+  
+
+5. To update a student's department by their ID (replace `<student_id>` and `'new_department'` with the actual student ID and the new department name):
+
+   
+   UPDATE Student SET student_department = 'new_department' WHERE student_id = <student_id>;
+   
+
+6. To delete a student by their ID (replace `<student_id>` with the actual student ID):
+
+   
+   DELETE FROM Student WHERE student_id = <student_id>;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+
+Events Queries:
+
+1. To retrieve all events:
+
+   
+   SELECT * FROM Event;
+   
+
+2. To retrieve a specific event by its ID (replace `<event_id>` with the actual event ID):
+
+   
+   SELECT * FROM Event WHERE event_id = <event_id>;
+   
+
+3. To retrieve events on a specific date (replace `<date>` with the actual date in 'YYYY-MM-DD' format):
+
+   
+   SELECT * FROM Event WHERE event_date = '<date>';
+   
+
+4. To update an event's location by its ID (replace `<event_id>` and `'new_location'` with the actual event ID and the new location):
+
+   
+   UPDATE Event SET location_of_event = 'new_location' WHERE event_id = <event_id>;
+   
+
+5. To delete an event by its ID (replace `<event_id>` with the actual event ID):
+
+   
+   DELETE FROM Event WHERE event_id = <event_id>;
+   
+
+
+These queries can be executed in the H2 Console or programmatically within your Spring Boot application to interact with the H2 database for students and events. Make sure to replace placeholders like <student_id>, <event_id>, <new_department>, <date>, and <new_location> with actual values when executing the queries.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+   {
+        "firstName": "Sophie",
+        "lastName": "Anderson",
+        "age": 20,
+        "studentDepartment": "ME"
+    
+   }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[
+    
+    {
+        "firstName": "Ethan",
+        "lastName": "Moore",
+        "age": 21,
+        "studentDepartment": "CSE"
+    },
+    {
+        "firstName": "Liam",
+        "lastName": "Robinson",
+        "age": 19,
+        "studentDepartment": "ECE"
+    },
+    {
+        "firstName": "Ava",
+        "lastName": "White",
+        "age": 20,
+        "studentDepartment": "CIVIL"
+    },
+    {
+        "firstName": "Oliver",
+        "lastName": "Harris",
+        "age": 22,
+        "studentDepartment": "CIVIL"
+    }
+]
+
+
+[
+    {
+        "firstName": "Emma",
+        "lastName": "Johnson",
+        "age": 23,
+        "studentDepartment": "ECE"
+    },
+    {
+        "firstName": "Lucas",
+        "lastName": "Taylor",
+        "age": 24,
+        "studentDepartment": "ME"
+    },
+    {
+        "firstName": "Mia",
+        "lastName": "Hall",
+        "age": 20,
+        "studentDepartment": "CSE"
+    },
+    {
+        "firstName": "Jackson",
+        "lastName": "Brown",
+        "age": 21,
+        "studentDepartment": "CIVIL"
+    },
+    {
+        "firstName": "Sophie",
+        "lastName": "Smith",
+        "age": 22,
+        "studentDepartment": "ECE"
+    }
+]
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    {
+        "eventId": 21,
+        "eventName": "Debate Competition",
+        "locationOfEvent": "Auditorium",
+        "eventDate": "2023-11-15",
+        "startTime": "13:00:00",
+        "endTime": "16:00:00"
+    }
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[
+
+    {
+        "eventId": 22,
+        "eventName": "Food Festival",
+        "locationOfEvent": "Food Court",
+        "eventDate": "2023-10-10",
+        "startTime": "17:30:00",
+        "endTime": "21:30:00"
+    },
+    {
+        "eventId": 23,
+        "eventName": "Book Fair",
+        "locationOfEvent": "Library",
+        "eventDate": "2023-11-22",
+        "startTime": "09:00:00",
+        "endTime": "15:00:00"
+    },
+    {
+        "eventId": 24,
+        "eventName": "Drama Performance",
+        "locationOfEvent": "Black Box Theater",
+        "eventDate": "2023-12-08",
+        "startTime": "19:30:00",
+        "endTime": "21:30:00"
+    },
+    {
+        "eventId": 25,
+        "eventName": "Science Quiz",
+        "locationOfEvent": "Science Hall",
+        "eventDate": "2023-11-18",
+        "startTime": "10:30:00",
+        "endTime": "12:30:00"
+    }
+]
+
+
+[
+    {
+        "eventId": 26,
+        "eventName": "Coding Competition",
+        "locationOfEvent": "Computer Lab",
+        "eventDate": "2023-10-25",
+        "startTime": "14:00:00",
+        "endTime": "18:00:00"
+    },
+    {
+        "eventId": 27,
+        "eventName": "Fashion Show",
+        "locationOfEvent": "Fashion Studio",
+        "eventDate": "2023-11-08",
+        "startTime": "19:00:00",
+        "endTime": "22:00:00"
+    },
+    {
+        "eventId": 28,
+        "eventName": "Charity Run",
+        "locationOfEvent": "Park",
+        "eventDate": "2023-12-01",
+        "startTime": "08:30:00",
+        "endTime": "11:30:00"
+    },
+    {
+        "eventId": 29,
+        "eventName": "Tech Symposium",
+        "locationOfEvent": "Auditorium",
+        "eventDate": "2023-10-17",
+        "startTime": "10:00:00",
+        "endTime": "16:00:00"
+    },
+    {
+        "eventId": 30,
+        "eventName": "Art Exhibition",
+        "locationOfEvent": "Art Gallery",
+        "eventDate": "2023-11-29",
+        "startTime": "11:00:00",
+        "endTime": "17:00:00"
+    }
+]
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To interact with the University Event Management API endpoints in Postman, you can use the following details for each of the provided endpoints. This guide includes the HTTP method, URL, request body (if required), and a brief description of each endpoint's purpose.
+
+Student Endpoints:
+
+1. Add a Student
+
+   - Method: POST
+   - URL: http://localhost:8080/student
+   - Request Body: JSON representation of a student (e.g., see previous student JSON examples)
+   - Description: Add a new student record to the system.
+
+2. Add Multiple Students
+
+   - Method: POST
+   - URL: http://localhost:8080/students
+   - Request Body: JSON array of student records (e.g., see previous student JSON examples)
+   - Description: Add multiple student records to the system at once.
+
+3. Get All Students
+
+   - Method: GET
+   - URL: http://localhost:8080/students
+   - Description: Retrieve a list of all student records.
+
+4. Get Student by ID
+
+   - Method: GET
+   - URL: http://localhost:8080/student/{studentId}
+   - Description: Retrieve a specific student's details by providing their `studentId` in the URL.
+
+5. Update Student Department
+
+   - Method: PUT
+   - URL: http://localhost:8080/student/{studentId}/{department}
+   - Request Body: None
+   - Description: Update a student's department by providing their `studentId` and the new `department` in the URL.
+
+6. Delete Student by ID
+
+   - Method: DELETE
+   - URL: http://localhost:8080/student/{studentId}
+   - Description: Remove a student from the system by specifying their `studentId` in the URL.
+
+Event Endpoints:
+
+1. Add an Event
+
+   - Method: POST
+   - URL: http://localhost:8080/event
+   - Request Body: JSON representation of an event (e.g., see previous event JSON examples)
+   - Description: Add a new event to the system.
+
+2. Add Multiple Events
+
+   - Method: POST
+   - URL: http://localhost:8080/events
+   - Request Body: JSON array of event records (e.g., see previous event JSON examples)
+   - Description: Add multiple event records to the system at once.
+
+3. Get All Events
+
+   - Method: GET
+   - URL: http://localhost:8080/events
+   - Description: Retrieve a list of all event records.
+
+4. Get Event by ID
+
+   - Method: GET
+   - URL: http://localhost:8080/event/{eventId}
+   - Description: Retrieve details of a specific event by providing its `eventId` in the URL.
+
+5. Get Events on the Same Date
+
+   - Method: GET
+   - URL: http://localhost:8080/events/date
+   - Request Parameters: `date` (e.g., 2023-09-20)
+   - Description: Retrieve a list of events that occur on the specified date by providing the date as a request parameter.
+
+6. Update Event Location by ID
+
+   - Method: PUT
+   - URL: http://localhost:8080/event/id/{eventId}/location/{loc}
+   - Request Body: None
+   - Description: Update the location of a specific event by providing its `eventId` and the new `loc` (location) in the URL.
+
+7. Delete Event by ID
+
+   - Method: DELETE
+   - URL: http://localhost:8080/event/{eventId}
+   - Description: Remove an event from the system by specifying its `eventId` in the URL.
+
+These are the API endpoints you can use in Postman to perform various actions related to students and events in the University Event Management system. Adjust the URLs and request bodies as needed based on your data and requirements.
+
