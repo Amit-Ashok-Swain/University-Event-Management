@@ -312,7 +312,7 @@ The Repository layer manages data access to the underlying H2 Database. It manag
 
 ```java
 @Repository
-public interface IStudentRepo extends JpaRepository<Student, Integer> {
+public interface IStudentRepo extends CrudRepository<Student, Integer> {
     // Custom query methods can be added here
 }
 ```
